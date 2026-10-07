@@ -1,0 +1,13 @@
+# Ignora a pasta do ambiente virtual (muito pesada)
+venv/
+env/
+
+# Ignora os arquivos temporários do Python
+__pycache__/
+
+# Ignora PDFs temporários gerados no upload
+temp.pdf
+invoice_teste.pdf
+
+# Ignora arquivos de senhas/chaves de API
+.env
