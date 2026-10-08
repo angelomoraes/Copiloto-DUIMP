@@ -11,3 +11,7 @@ invoice_teste.pdf
 
 # Ignora arquivos de senhas/chaves de API
 .env
+
+.streamlit/secrets.toml
+
+.vscode/

@@ -3,3 +3,5 @@ pydantic
 pdfplumber
 pandas
 google-genai
+openai
+python-dotenv
