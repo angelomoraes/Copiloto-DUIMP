@@ -36,11 +36,11 @@ def _get_env(nome_var, default=""):
 # A ordem da lista é a ordem de prioridade
 PROVEDORES = [
     {"nome": "Gemini", "tipo": "gemini",
-     "chaves": _chaves("GEMINI_API_KEYS"), "modelo": os.getenv("GEMINI_MODEL")},
+     "chaves": _chaves("GEMINI_API_KEYS"), "modelo": _get_env("GEMINI_MODEL")},
     {"nome": "Groq", "tipo": "openai", "base_url": "https://api.groq.com/openai/v1",
-     "chaves": _chaves("GROQ_API_KEYS"), "modelo": os.getenv("GROQ_MODEL")},
+     "chaves": _chaves("GROQ_API_KEYS"), "modelo": _get_env("GROQ_MODEL")},
     {"nome": "OpenRouter", "tipo": "openai", "base_url": "https://openrouter.ai/api/v1",
-     "chaves": _chaves("OPENROUTER_API_KEYS"), "modelo": os.getenv("OPENROUTER_MODEL")},
+     "chaves": _chaves("OPENROUTER_API_KEYS"), "modelo": _get_env("OPENROUTER_MODEL")},
 ]
 
 
