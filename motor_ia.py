@@ -1,5 +1,6 @@
 import os
 import time
+import streamlit as st
 from dotenv import load_dotenv
 from google import genai
 from openai import OpenAI
@@ -9,7 +10,28 @@ load_dotenv()
 
 
 def _chaves(nome_var):
-    return [k.strip() for k in os.getenv(nome_var, "").split(",") if k.strip()]
+    valor = ""
+    # Primeiro tenta a busca da WEB
+    try:
+        if nome_var in st.secrets:
+            valor = st.secrets[nome_var]
+    except Exception:
+        pass
+    
+    # Se não achou, busca do ambiente local (.env)
+    if not valor:
+        valor = os.getenv(nome_var, "")
+
+    return [k.strip() for k in valor.split(",") if k.strip()]
+
+def _get_env(nome_var, default=""):
+    # Tenta buscar variáveis de configuraçãode forma segura
+    try:
+        if nome_var in st.secrets:
+            return st.secrets[nome_var]
+    except Exception:
+        pass
+    return os.getenv(nome_var, default)
 
 # A ordem da lista é a ordem de prioridade
 PROVEDORES = [
