@@ -11,7 +11,6 @@ load_dotenv()
 def _chaves(nome_var):
     return [k.strip() for k in os.getenv(nome_var, "").split(",") if k.strip()]
 
-
 # A ordem da lista é a ordem de prioridade
 PROVEDORES = [
     {"nome": "Gemini", "tipo": "gemini",
