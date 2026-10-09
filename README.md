@@ -1,9 +1,9 @@
-# 🚢 DUIMP Copilot
+# DUIMP Copilot
 
 **Assistente de IA para despachantes aduaneiros: sugere a NCM, mostra quanto custa errar e prepara os atributos do Catálogo de Produtos.**
 
-🔗 **Teste online:** https://duimp-copilot.streamlit.app
-💡 Sem arquivo ou chave de API? Marque **"Modo Demo"** na barra lateral.
+ **Teste online:** https://duimp-copilot.streamlit.app
+ Sem arquivo ou chave de API? Marque **"Modo Demo"** na barra lateral.
 
 ---
 
@@ -58,8 +58,6 @@ OPENROUTER_MODEL=...   # use modelos gratuitos (:free)
 python -m streamlit run app.py
 ```
 
-No Streamlit Cloud, coloque as mesmas variáveis em **Settings → Secrets**. Nunca suba o `.env` para o GitHub.
-
 ## Limitações
 
 - NCM, probabilidades e alíquotas são **estimativas da IA**, sempre sujeitas a revisão humana.
@@ -72,5 +70,8 @@ No Streamlit Cloud, coloque as mesmas variáveis em **Settings → Secrets**. Nu
 Integração real com a API do Siscomex · base oficial de NCM/TEC/TIPI · invoices com vários itens · cálculo de risco completo.
 
 ---
+## Ferramentas
 *Python · Streamlit · Pydantic · Pandas · Altair · Gemini / Groq / OpenRouter*
 *Ferramenta de apoio: não substitui despachante, contador nem as tabelas oficiais.*
+---
+***Aviso**: esta é uma ferramenta de apoio. Não substitui o parecer de um despachante aduaneiro ou contador, nem a consulta às tabelas oficiais (NCM, TEC, TIPI).*
