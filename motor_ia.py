@@ -6,7 +6,7 @@ from google import genai
 from openai import OpenAI
 from modelos import ProdutoAnalisado
 
-load_dotenv()
+load_dotenv(override=True)
 
 
 def _chaves(nome_var):
@@ -47,7 +47,9 @@ PROVEDORES = [
 def _montar_prompt(texto_invoice):
     return f"""
     Você é um auditor aduaneiro. Analise o texto da invoice abaixo.
-    Identifique o produto principal, sugira a NCM e extraia os atributos técnicos obrigatórios.
+    Identifique o produto principal e liste de 3 a 5 NCMs candidatas (8 dígitos),
+    da mais para a menos provável, com probabilidade (soma = 100), justificativa
+    curta e alíquotas estimadas de II e IPI. Extraia também os atributos técnicos obrigatórios.
 
     Texto da Invoice:
     {texto_invoice}
@@ -115,6 +117,6 @@ def analisar_invoice_ia(texto_invoice):
                     # Cota estourada (429) ou chave inválida: não adianta repetir
                     if "429" in msg or "401" in msg or "403" in msg or "404" in msg:
                         break
-                    time.sleep(2)  # espera 3s, 6s, 9s, 12s
-
-    raise RuntimeError("Todos os provedores falharam:\n" + "\n".join(erros))
+                    time.sleep(2)
+    raise RuntimeError("Todos os provedores falharam:\n" + "\n".join(erros) if erros
+            else "Nenhum provedor configurado. Verifique o .env")
