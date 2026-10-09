@@ -7,3 +7,4 @@ openai
 python-dotenv
 xmltodict
 openpyxl
+altair
